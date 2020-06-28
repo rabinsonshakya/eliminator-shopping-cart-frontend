@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1>{{title}}</h1>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a class="nav-link active" data-toggle="tab" href="#details" role="tab">Info</a>
+        </li>
+        <li>
+            <a class="nav-link active" data-toggle="tab" href="#details1" role="tab">Tasks</a>
+        </li>
+        <li>
+            <a class="nav-link active" data-toggle="tab" href="#details2" role="tab">Ledger</a>
+        </li>
+        <li>
+            <a class="nav-link active" data-toggle="tab" href="#details3" role="tab">Address</a>
+        </li>
+    </ul>
+
+
+</div>
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">Search by FirstName:
+                <input id="searchBar" type="text" />
+            </div>
+            <div class="col-md-4">Search by DEA Number:
+                <input id="searchBarNumber" type="text" />
+            </div>
+            <!-- <button class="btn btn-primary" (click)=searchList()>Search</button> -->
+            <!-- <button class="btn btn-primary"  [routerLink]="['/addPrescriber']">Add Prescriber</button> -->
+            <br>
+            <br>
+
+        </div>
+
+        <br>
+        <div class="table">
+            
+                <table *ngIf="productDertailsList && productDertailsList.length" class="table table-hover table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+
+                </tr>
+                <tr *ngFor="let temp of productDertailsList">
+                    <td>
+                        <a (click)=open() [routerLink]="[temp.id]">{{temp.id}}</a>
+                    </td>
+                    <td>{{temp.name}}</td>
+                    <td>{{temp.description}}</td>
+                    <!-- <td>
+                        <tr>Phone Number: {{temp.phoneNumber}}</tr>
+                        <tr>Fax Number: {{temp.faxNumber}}</tr>
+                        <tr>Email Id: {{temp.emailId}}</tr>
+                    </td>
+                    <td>{{temp.specialization}}</td> -->
+                </tr>
+            </table>
+        </div>
+        <div class="panel-footer">
+        </div>
+    </div>
+</div>
