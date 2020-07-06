@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('angular-ethoca-shopping-cart app is running!');
+    expect(page.getTitleText()).toEqual('angular-eliminator-shopping-cart-frontend app is running!');
   });
 
   afterEach(async () => {

@@ -16,11 +16,5 @@
     {
       "path": "./e2e/tsconfig.json"
     }
-  ],
-  "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "module": "amd",
-    "target": "ES6"
-  }
+]
 }

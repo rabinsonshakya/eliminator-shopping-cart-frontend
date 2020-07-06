@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-ethoca-shopping-cart'`, () => {
+  it(`should have as title 'angular-eliminator-shopping-cart-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-ethoca-shopping-cart');
+    expect(app.title).toEqual('angular-eliminator-shopping-cart-frontend');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-ethoca-shopping-cart app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('angular-eliminator-shopping-cart-frontend app is running!');
   });
 });
