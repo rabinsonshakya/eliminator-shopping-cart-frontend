@@ -43,4 +43,29 @@ export class ProductDetailListComponent implements OnInit {
     });
   }
 
+  stepUp() {
+    for (let i in this.contextCart.products) {
+      if (this.contextCart.products[i].id === this.productItem.id) {
+        this.contextCart.products[i].quantity++;
+      }
+
+    }
+    this.calculateTotalAmountandItemNumbers();
+    this.cartService.updateCart(this.contextCart.id, this.contextCart).subscribe();
+    window.location.reload();
+  }
+
+  stepDown() {
+    for (let i in this.contextCart.products) {
+      if (this.contextCart.products[i].id === this.productItem.id) {
+        if (this.contextCart.products[i].quantity > 1) {
+          this.contextCart.products[i].quantity--;
+        }
+      }
+    }
+    this.calculateTotalAmountandItemNumbers();
+    this.cartService.updateCart(this.contextCart.id, this.contextCart).subscribe();
+    window.location.reload();
+  }
+
 }
