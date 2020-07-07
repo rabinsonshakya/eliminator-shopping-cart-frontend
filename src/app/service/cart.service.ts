@@ -3,45 +3,43 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Subject, Observable } from 'rxjs';
-import { ProductDetail } from '../models/product-detail';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  url = 'http://localhost:8090';
+  
+  url = 'http://localhost:8090/eliminator/shoppingcart/';
   subject = new Subject();
   cart: Cart;
 
   constructor(private http: HttpClient) { }
 
-  createCart(cart: Cart): any {
-    debugger;
-    return this.http.post(this.url + '/eliminator/shoppingcart', cart);
+  getCartWithId(id: string): Observable<Cart> {
+    return this.http.get<Cart>(this.url + id);
   }
 
-  updateCart(cartId: string, cart: Cart): any {
+  createCart(cart: Cart): Observable<Cart> {
     debugger;
-    return this.http.post(this.url + '/eliminator/shoppingcart/' + cartId, cart);
+    return this.http.post<Cart>(this.url, cart);
   }
 
-  async createEmptyCart(): Promise<object> {
+  updateCart(cartId: string, cart: Cart): Observable<Cart> {
     debugger;
-    return await this.http.post(this.url + '/eliminator/shoppingcart',
+    console.log(cart);
+    return this.http.post<Cart>(this.url + cartId, cart);
+  }
+
+  async createEmptyCart(): Promise<Cart> {
+    debugger;
+    return await this.http.post<Cart>(this.url,
       { totalAmount: 0, orderCompleted: false, dateCreated: new Date(), products: [] }).toPromise();
   }
 
-  sendMsg(cart: Cart): any {
+  completeOrder(cart: Cart): Observable<Cart> {
     debugger;
-    console.log(cart);
-    this.subject.next(cart);
+    cart.orderCompleted = true;
+    return this.http.put<Cart>(this.url + cart.id + '/checkout', cart);
   }
-
-  getMsg(): any {
-    debugger;
-    return this.subject.asObservable();
-  }
-
 
 }

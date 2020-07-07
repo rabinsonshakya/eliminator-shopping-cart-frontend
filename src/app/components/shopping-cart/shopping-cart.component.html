@@ -1,10 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <app-product-detail-list></app-product-detail-list>
+      <tr *ngFor="let productItem of contextCart.products">
+        <div class="row mb-4">
+          <app-product-detail-list [productItem]="productItem"></app-product-detail-list>
+        </div>
+      </tr>
     </div>
     <div class="col">
-      <app-cart></app-cart>
+      <div class="card">
+        <div class="card-body">
+          <app-cart [contextCart]="contextCart"></app-cart>
+        </div>
+      </div>
     </div>
   </div>
 </div>

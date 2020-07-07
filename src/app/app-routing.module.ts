@@ -1,4 +1,4 @@
-import { CartListComponent } from './components/product-list/cart-list/cart-list.component';
+import { CartListComponent } from './components/product-list/product-home/cart-list.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

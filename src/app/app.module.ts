@@ -13,8 +13,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CartComponent } from './components/shopping-cart/cart/cart.component';
-import { FiltersComponent } from './components/shopping-cart/filters/filters.component';
-import { CartListComponent } from './components/product-list/cart-list/cart-list.component';
+import { CartListComponent } from './components/product-list/product-home/cart-list.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProductService } from './service/product.service';
@@ -29,7 +28,6 @@ import { ProductService } from './service/product.service';
     ShoppingCartComponent,
     CartComponent,
     ProductListComponent,
-    FiltersComponent,
     CartListComponent,
     ProductDetailListComponent,
     ProductDetailsComponent

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Cart } from 'src/app/models/cart';
 import { CartService } from 'src/app/service/cart.service';
 
@@ -9,10 +9,12 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class CartListComponent implements OnInit {
 
-  cart: Cart;
+  @Input() cart: Cart;
 
   constructor(private cartService: CartService) {
-     this.createEmptyCart();
+    this.cart = new Cart();
+    this.createEmptyCart();
+    // this.cartService.sendMsg(this.cart);
   }
 
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class CartListComponent implements OnInit {
       this.cartService.createEmptyCart();
     console.log('Created Cart: ' + createdCart);
     this.cart = createdCart as Cart;
-    this.cartService.sendMsg(createdCart as Cart);
+    console.log(this.cart);
   }
 
 }
